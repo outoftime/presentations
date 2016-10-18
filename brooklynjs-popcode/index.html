@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Popcode: A New Tool for Novice Web Developers</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>Popcode</h1>
+          <h2>A New Tool for Novice Web Developers</h2>
+        </section>
+
+        <section>
+          <img
+            class="plain"
+            style="background: none;"
+            src="https://s3.amazonaws.com/ellevate-app-uploads-production/events/4019/event_image/large/scripted-full-mark-orange.png?1424753155"
+          >
+        </section>
+
+        <section>
+          (live demo)
+        </section>
+
+        <section>
+          <h2>How Popcode Works</h2>
+
+          <table>
+            <tr>
+              <td>
+                <code>html-inspector</code><br>
+                <code>htmllint</code><br>
+                <code>slowparse</code>
+              </td>
+
+              <td>
+                <code>css</code><br>
+                <code>PrettyCSS</code>
+              </td>
+
+              <td>
+                <code>esprima</code><br>
+                <code>jshint</code>
+              </td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h2>How Popcode Works</h2>
+
+          <pre><code data-trim data-noescape>
+E019: (error) => ({
+  reason: 'unmatched',
+  payload: {openingSymbol: error.a, closingSymbol: match[error.a]},
+  suppresses: ['end-of-input'],
+}),
+
+W003: (error) => ({
+  reason: 'undefined-variable',
+  payload: {variable: error.a},
+}),
+          </code></pre>
+
+        </section>
+
+        <section>
+          <h2>How Popcode Works</h2>
+
+          <pre><code data-trim data-noescape>
+"unmatched": "There is a __openingSymbol__ on this line
+  that needs a closing __closingSymbol__",
+
+"undefined-variable": "You can't use the variable
+  __variable__ before declaring it.",
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>Popcode’s Design</h2>
+
+          <ul>
+            <li class="fragment">Client-side only</li>
+            <li class="fragment">Auth and storage with Firebase</li>
+            <li class="fragment">Export gists to submit work</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Popcode: the code</h2>
+
+          <ul>
+            <li class="fragment">React!</li>
+            <li class="fragment">Redux!</li>
+            <li class="fragment">ImmutableJS!</li>
+            <li class="fragment">ES2016!</li>
+            <li class="fragment">Webpack!</li>
+            <li class="fragment">Some tests!</li>
+            <li class="fragment">OK code!</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>Challenges</h1>
+        </section>
+
+        <section>
+          <h2>The Limits of Linters</h2>
+          <table>
+            <tr>
+              <td>
+                <pre><code data-trim data-noescape>
+.red
+  color: red;
+}
+                </code></pre>
+              </td>
+              <td>
+                <pre><code data-trim data-noescape>
+.red a: hover {
+}
+                </code></pre>
+              </td>
+            </tr>
+            <tr>
+              <td><code>block-expected</code></td>
+              <td><code>block-expected</code></td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h2>Slow Networks</h2>
+          <div><img src="https://www.wired.com/images_blogs/photos/uncategorized/56kmodem_off.jpg"</img></div>
+        </section>
+
+        <section>
+          <h2>I am bad at design</h2>
+          <img style="height: 40vh;" src="images/design.png">
+        </section>
+
+        <section>
+          <h1>Want to contribute?</h1>
+        </section>
+
+        <section>
+          <h2>OK!</h2>
+          <p>github.com/popcodeorg/popcode</p>
+          <p>@popcodeorg</p>
+          <p>mat.a.brown@gmail.com</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        history: true,
+
+        width: 960,
+        height: 420,
+
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>
