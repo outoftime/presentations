@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <title>window.open test</title>
+  </head>
+  <body>
+    <p id="datauri">window.open with data URI</p>
+
+    <p id="indirect">window.open with blank, then set URI</p>
+
+    <script>
+      var uri =
+        'data:text/html,<!doctype html><html><body>Hello, world</body></html>';
+
+      document.getElementById('datauri').addEventListener('click', function() {
+        window.open(uri, '_blank');
+      });
+
+      document.getElementById('indirect').addEventListener('click', function() {
+        var newWindow = window.open('about:blank', '_blank');
+        newWindow.location.href = uri;
+      });
+    </script>
+  </body>
+</html>
